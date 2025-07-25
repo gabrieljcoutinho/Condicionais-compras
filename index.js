@@ -1,69 +1,77 @@
 // Deve imprimir um dos seguintes textos:
 
-//      Frutas: Nenhuma
-//      Frutas: abacaxi ------------------------------- feito
-//      Frutas: banana --------------------------------feito
-//      Frutas: uva ------------------------------------- feito
-//      Frutas: abacaxi e Banana  ------------------feito
-//      Frutas:  banana e uva ------------------------feito
-//      Frutas:  abacaxi, banana e uva ------------feito
+//      Frutas: abacaxi                                              FEITO
+//      Frutas: banana                                              FEITO
+//      Frutas: uva                                                    FEITO
+//      Frutas: abacaxi e Banana                             FeITO
+//      Frutas:  banana e uva                                    FEITO
+//      Frutas:  abacaxi, banana e uva                    FEITO
 
-//      Legumes: Nenhum
-//      Legumes: abobrinha  ----------------- feito
-//      Legumes: cenoura --------------------- feito
-//      Legumes: abobrinha e cenoura
+//      Legumes: abobrinha                                      FEITO
+//      Legumes: cenoura                                           FEITO
+//      Legumes: abobrinha e cenoura                        FEITO
 
-//      Resumo: Comprei somente frutas  ---------------feito
-//      Resumo: Comprei somente legumes -------------feito
-//      Resumo: Comprei frutas e legumes -------------- feito
+//      Resumo: Comprei somente frutas
+//      Resumo: Comprei somente legumes            FEITO
+//      Resumo: Comprei frutas e legumes                FEITO
 
-//      Resumo: Não comprei nada ------------------- feito
+//      Resumo: Não comprei nada                       FEITO
 
-
+// &&(E) --  || (Ou)
 
 
-const compreiAbacaxi = true;
+
+const compreAbacaxi = true;
 const compreiBanana = true;
 const compreiUva = true;
 
 const compreiAbobrinha = true;
 const compreiCenoura = true;
 
-const compreiFrutasELegumes = compreiAbacaxi && compreiBanana && compreiUva && compreiAbobrinha && compreiCenoura;
-const compreiSomenteFrutas = compreiAbacaxi && compreiBanana && compreiUva
-const sompreiSomenteLegumes = compreiAbobrinha && compreiCenoura
+
+
+const compreiAbacaxiEBanana = compreAbacaxi && compreiBanana;
+const compreiBananaEUva = compreiBanana && compreiUva;
+const compreiAbacaxiEUva = compreAbacaxi && compreiUva;
+
+
+const compreiTodasAsFrutas = compreAbacaxi && compreiBanana && compreiUva;
+
+const compreiTodosOsLegumes = compreiAbobrinha && compreiCenoura;
+
+
+const compreiSomenteFrutas = compreiTodasAsFrutas && !compreiTodosOsLegumes;
+const compreiSomenteLegumes = compreiTodosOsLegumes && !compreiTodasAsFrutas;
+const compreiFrutasELegumes = compreiTodasAsFrutas && compreiTodosOsLegumes;
+
+
 
 if (compreiFrutasELegumes) {
-    console.log("Comprei frutas e legumes");
-} else if(compreiSomenteFrutas){
-    console.log("Comprei somente frutas")
-} else if(sompreiSomenteLegumes){
-    console.log("Comprei somente legumes")
-}else if (compreiAbacaxi && compreiBanana && compreiUva && !compreiAbobrinha && !compreiCenoura) {
+    console.log("Resumo: Comprei frutas e legumes");
+} else if (compreiSomenteFrutas) {
+    console.log("Resumo: Comprei somente frutas");
+} else if (compreiSomenteLegumes) {
+    console.log("Resumo: Comprei somente legumes");
+} else if (compreiTodasAsFrutas) {
     console.log("Frutas: abacaxi, banana e uva");
-}else if (!compreiAbacaxi && !compreiBanana && !compreiUva && compreiAbobrinha && compreiCenoura) {
-    console.log("Comprei abobrinha e cenoura");
-}
-else if (compreiAbacaxi && compreiBanana) {
-    console.log("Frutas: abacaxi e banana");
-} else if (compreiBanana && compreiUva) {
+} else if (compreiTodosOsLegumes) {
+    console.log("Legumes: abobrinha e cenoura");
+} else if (compreiAbacaxiEBanana) {
+    console.log("Frutas: abacaxi e Banana");
+} else if (compreiBananaEUva) {
     console.log("Frutas: banana e uva");
-} else if (compreiAbacaxi && compreiUva){
-        console.log("Frutas: abacaxi e uva");
-}
-else if (compreiAbacaxi) {
+} else if (compreiAbacaxiEUva) {
+    console.log("Frutas: abacaxi e uva");
+} else if (compreAbacaxi) {
     console.log("Frutas: abacaxi");
 } else if (compreiBanana) {
-    console.log("Fruta: banana");
+    console.log("Frutas: banana");
 } else if (compreiUva) {
-    console.log("Fruta: uva");
-} else if(compreiAbobrinha){
-    console.log("Legumes: abobrinha")
-}  else if(compreiCenoura){
-    console.log("Legumes: cenoura")
-}
-
-
-else {
-    console.log("Não comprei nada");
+    console.log("Frutas: uva");
+} else if (compreiAbobrinha) {
+    console.log("Legumes: abobrinha");
+} else if (compreiCenoura) {
+    console.log("Legumes: cenoura");
+} else {
+    console.log(" Não comprei nada");
 }
