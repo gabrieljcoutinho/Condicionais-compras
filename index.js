@@ -1,24 +1,3 @@
-// Deve imprimir um dos seguintes textos:
-
-//      Frutas: abacaxi                                              FEITO
-//      Frutas: banana                                              FEITO
-//      Frutas: uva                                                    FEITO
-//      Frutas: abacaxi e Banana                             FeITO
-//      Frutas:  banana e uva                                    FEITO
-//      Frutas:  abacaxi, banana e uva                    FEITO
-
-//      Legumes: abobrinha                                      FEITO
-//      Legumes: cenoura                                           FEITO
-//      Legumes: abobrinha e cenoura                        FEITO
-
-//      Resumo: Comprei somente frutas
-//      Resumo: Comprei somente legumes            FEITO
-//      Resumo: Comprei frutas e legumes                FEITO
-
-//      Resumo: Não comprei nada                       FEITO
-
-// &&(E) --  || (Ou)
-
 
 
 const compreAbacaxi = true;
